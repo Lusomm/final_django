@@ -154,6 +154,5 @@ def show_exam_result(request, course_id, submission_id):
     context['grade'] = final_grade
     context['course_id'] = course_id
     context['selected_ids'] = choices.all().values_list('id', flat=True)
+    context['course'] = Course.objects.get(pk=course_id)
     return render(request, 'onlinecourse/exam_result_bootstrap.html', context)
-
-
